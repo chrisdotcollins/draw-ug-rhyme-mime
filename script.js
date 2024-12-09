@@ -27,12 +27,18 @@ function showRandomWords() {
 
             // Display the words on the page
             const wordContainer = document.getElementById('word-container');
-            wordContainer.innerHTML = randomWords.join(', ');
+            if (wordContainer) {  // Ensure the container exists
+                wordContainer.innerHTML = randomWords.join(', ');
+            } else {
+                console.error('Word container not found!');
+            }
         } else {
             console.error('Word list is empty or failed to load.');
         }
     });
 }
 
-// Call the function when the page loads
-window.onload = showRandomWords;
+// Wait for the page to load before executing the script
+document.addEventListener('DOMContentLoaded', function() {
+    showRandomWords();
+});
