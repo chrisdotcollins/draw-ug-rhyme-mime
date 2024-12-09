@@ -25,12 +25,20 @@ function showRandomWords() {
                 }
             }
 
-            // Display the words on the page
-            const wordContainer = document.getElementById('wordlist');
-            if (wordContainer) {  // Ensure the container exists
-                wordContainer.innerHTML = randomWords.join(', ');
+            // Display the words on the page inside <ul id="wordList">
+            const wordListElement = document.getElementById('wordList');
+            if (wordListElement) {  // Ensure the wordList exists
+                // Clear any previous content
+                wordListElement.innerHTML = '';
+                
+                // Create and append each random word as a list item
+                randomWords.forEach(word => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = word;
+                    wordListElement.appendChild(listItem);
+                });
             } else {
-                console.error('Word container definitely not found!');
+                console.error('Word list container (ul#wordList) not found!');
             }
         } else {
             console.error('Word list is empty or failed to load.');
