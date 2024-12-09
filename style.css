@@ -1,0 +1,9 @@
+body {
+    background-image: url('background-doodle.png'); /* Adjust the path based on your folder structure */
+    background-repeat: repeat; /* Tiling effect */
+    background-size: auto; /* Use the original size for seamless tiling */
+    background-color: white; /* Fallback color */
+    margin: 0; /* Removes any default margin */
+    padding: 0; /* Removes any default padding */
+    font-family: Arial, sans-serif; /* Optional: Set a default font */
+}
