@@ -1,28 +1,38 @@
-// A long list of words
-const words = [
-    "apple", "banana", "cherry", "date", "elderberry", "fig", "grape", 
-    "honeydew", "kiwi", "lemon", "mango", "nectarine", "orange", 
-    "papaya", "quince", "raspberry", "strawberry", "tangerine", 
-    "ugli", "vanilla", "watermelon", "xigua", "yam", "zucchini"
-];
+// This function fetches the word list from the file and returns it as an array
+function loadWordList() {
+    return fetch('common_nouns_5000.txt')  // Make sure the path is correct relative to your HTML file
+        .then(response => response.text()) // Convert response to text
+        .then(data => {
+            // Split the text into an array of words
+            return data.split('\n').map(word => word.trim()).filter(word => word !== ''); // Remove empty lines
+        })
+        .catch(error => {
+            console.error('Error loading the word list:', error);
+            return []; // Return an empty array in case of an error
+        });
+}
 
-// Function to generate 8 random words
-function generateWords() {
-    const wordList = document.getElementById("wordList");
-    wordList.innerHTML = ""; // Clear the previous list
-    const randomWords = [];
+function showRandomWords() {
+    loadWordList().then(wordList => {
+        // Check if the word list is loaded correctly
+        if (wordList.length > 0) {
+            // Select 8 random words
+            const randomWords = [];
+            while (randomWords.length < 8) {
+                const randomWord = wordList[Math.floor(Math.random() * wordList.length)];
+                if (!randomWords.includes(randomWord)) {
+                    randomWords.push(randomWord);
+                }
+            }
 
-    while (randomWords.length < 8) {
-        const randomIndex = Math.floor(Math.random() * words.length);
-        const word = words[randomIndex];
-        if (!randomWords.includes(word)) {
-            randomWords.push(word);
+            // Display the words on the page
+            const wordContainer = document.getElementById('word-container');
+            wordContainer.innerHTML = randomWords.join(', ');
+        } else {
+            console.error('Word list is empty or failed to load.');
         }
-    }
-
-    randomWords.forEach(word => {
-        const listItem = document.createElement("li");
-        listItem.textContent = word;
-        wordList.appendChild(listItem);
     });
 }
+
+// Call the function when the page loads
+window.onload = showRandomWords;
