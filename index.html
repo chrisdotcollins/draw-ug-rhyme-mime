@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Words</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        .word-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .word-list li {
+            font-size: 1.5em;
+            margin: 10px 0;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Random Words</h1>
+    <ul class="word-list" id="wordList"></ul>
+    <button onclick="generateWords()">Generate Words</button>
+
+    <script src="script.js"></script>
+</body>
+</html>
