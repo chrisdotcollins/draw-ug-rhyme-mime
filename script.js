@@ -30,7 +30,7 @@ function showRandomWords() {
             if (wordContainer) {  // Ensure the container exists
                 wordContainer.innerHTML = randomWords.join(', ');
             } else {
-                console.error('Word container not found!');
+                console.error('Word container definitely not found!');
             }
         } else {
             console.error('Word list is empty or failed to load.');
