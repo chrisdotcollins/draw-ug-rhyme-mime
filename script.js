@@ -26,7 +26,7 @@ function showRandomWords() {
             }
 
             // Display the words on the page
-            const wordContainer = document.getElementById('word-container');
+            const wordContainer = document.getElementById('wordlist');
             if (wordContainer) {  // Ensure the container exists
                 wordContainer.innerHTML = randomWords.join(', ');
             } else {
