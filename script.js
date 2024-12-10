@@ -5,7 +5,7 @@ function startCountdown() {
     const timerElement = document.getElementById('timer');
     const timerContainer = document.querySelector('.timer-container');
     const alarmSound = document.getElementById('alarm-sound');
-    let timeRemaining = 90; // Set the countdown start time in seconds
+    let timeRemaining = 20; // Set the countdown start time in seconds
 
     // Clear any existing timer to reset
     if (timerInterval) {
