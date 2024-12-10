@@ -3,6 +3,7 @@ let timerInterval = null; // Global variable to keep track of the timer interval
 // Function to start or reset the countdown timer
 function startCountdown() {
     const timerElement = document.getElementById('timer');
+    const timerContainer = document.querySelector('.timer-container');
     const alarmSound = document.getElementById('alarm-sound');
     let timeRemaining = 90; // Set the countdown start time in seconds
 
@@ -11,17 +12,16 @@ function startCountdown() {
         clearInterval(timerInterval);
     }
 
-    // Function to make the page flash red
-    function flashPage() {
-        const body = document.body;
+    // Function to make the timer container flash red
+    function flashTimerContainer() {
         let flashCount = 0;
         const flashInterval = setInterval(() => {
-            if (flashCount < 10) { // Flash 5 times (on/off = 1 flash)
-                body.style.backgroundColor = flashCount % 2 === 0 ? 'red' : '';
+            if (flashCount < 20) { // Flash 10 times (on/off = 1 flash)
+                timerContainer.style.backgroundColor = flashCount % 2 === 0 ? 'red' : '';
                 flashCount++;
             } else {
                 clearInterval(flashInterval); // Stop flashing
-                body.style.backgroundColor = ''; // Reset the background color
+                timerContainer.style.backgroundColor = ''; // Reset the background color
             }
         }, 500); // Flash every 500ms
     }
@@ -32,9 +32,9 @@ function startCountdown() {
         timeRemaining--;
         timerElement.textContent = timeRemaining;
 
-        // Start flashing the page when the timer reaches 5 seconds
-        if (timeRemaining === 5) {
-            flashPage();
+        // Start flashing the timer container when the timer reaches 10 seconds
+        if (timeRemaining === 10) {
+            flashTimerContainer();
         }
 
         // Check if the timer has reached zero
