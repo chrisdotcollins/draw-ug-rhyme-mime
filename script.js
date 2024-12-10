@@ -51,16 +51,37 @@ document.addEventListener('DOMContentLoaded', function() {
     showRandomWords();
 });
 
+// Function to start the countdown timer
 function startCountdown() {
     const timerElement = document.getElementById('timer');
     const alarmSound = document.getElementById('alarm-sound');
     let timeRemaining = 90; // Set the countdown start time in seconds
+
+    // Function to make the page flash red
+    function flashPage() {
+        const body = document.body;
+        let flashCount = 0;
+        const flashInterval = setInterval(() => {
+            if (flashCount < 10) { // Flash 5 times (on/off = 1 flash)
+                body.style.backgroundColor = flashCount % 2 === 0 ? 'red' : '';
+                flashCount++;
+            } else {
+                clearInterval(flashInterval); // Stop flashing
+                body.style.backgroundColor = ''; // Reset the background color
+            }
+        }, 500); // Flash every 500ms
+    }
 
     // Update the timer every second
     const timerInterval = setInterval(() => {
         // Decrease the time and update the display
         timeRemaining--;
         timerElement.textContent = timeRemaining;
+
+        // Start flashing the page when the timer reaches 5 seconds
+        if (timeRemaining === 5) {
+            flashPage();
+        }
 
         // Check if the timer has reached zero
         if (timeRemaining <= 0) {
@@ -74,3 +95,4 @@ function startCountdown() {
 document.addEventListener('DOMContentLoaded', function() {
     startCountdown(); // Automatically start the countdown
 });
+
