@@ -49,6 +49,22 @@
             color: #333; /* Dark color for text */
             margin: 10px 0; /* Space between words */
         }
+        .timer-container {
+            text-align: center;
+            font-size: 2rem;
+            margin: 20px;
+            padding: 10px;
+            background: #f9f9f9;
+            border-radius: 10px;
+            border: 2px solid #ccc;
+            width: 100px;
+            margin: 0 auto;
+        }
+        
+        #timer {
+            font-weight: bold;
+            color: #333;
+        }
     </style>
 </head>
 <body>
@@ -61,6 +77,11 @@
     
     <!-- Button to trigger word generation -->
     <button onclick="showRandomWords()">Generate Words</button>
+
+    <div class="timer-container">
+    <div id="timer">90</div> <!-- Timer display -->
+        <audio id="alarm-sound" src="alarm.mp3"></audio> <!-- Add an alarm sound -->
+    </div>
 
     <script src="script.js"></script>
 </body>
