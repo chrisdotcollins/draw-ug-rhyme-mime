@@ -49,6 +49,19 @@ function startCountdown() {
 }
 
 // Function to fetch the word list and display random words
+function loadWordList() {
+    return fetch('common_nouns_5000.txt') // Make sure the path is correct relative to your HTML file
+        .then(response => response.text()) // Convert response to text
+        .then(data => {
+            // Split the text into an array of words
+            return data.split('\n').map(word => word.trim()).filter(word => word !== ''); // Remove empty lines
+        })
+        .catch(error => {
+            console.error('Error loading the word list:', error);
+            return []; // Return an empty array in case of an error
+        });
+}
+
 function showRandomWords() {
     loadWordList().then(wordList => {
         // Check if the word list is loaded correctly
@@ -86,7 +99,7 @@ function showRandomWords() {
     startCountdown();
 }
 
-// Wait for the page to load before executing the script
+// Initialize everything when the page loads
 document.addEventListener('DOMContentLoaded', function() {
     startCountdown(); // Automatically start the countdown
 });
