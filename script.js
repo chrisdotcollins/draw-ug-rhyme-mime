@@ -101,5 +101,5 @@ function showRandomWords() {
 
 // Initialize everything when the page loads
 document.addEventListener('DOMContentLoaded', function() {
-    startCountdown(); // Automatically start the countdown
+    showRandomWords(); // Generate and display words on initial page load
 });
