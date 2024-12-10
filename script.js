@@ -50,3 +50,27 @@ function showRandomWords() {
 document.addEventListener('DOMContentLoaded', function() {
     showRandomWords();
 });
+
+function startCountdown() {
+    const timerElement = document.getElementById('timer');
+    const alarmSound = document.getElementById('alarm-sound');
+    let timeRemaining = 90; // Set the countdown start time in seconds
+
+    // Update the timer every second
+    const timerInterval = setInterval(() => {
+        // Decrease the time and update the display
+        timeRemaining--;
+        timerElement.textContent = timeRemaining;
+
+        // Check if the timer has reached zero
+        if (timeRemaining <= 0) {
+            clearInterval(timerInterval); // Stop the timer
+            alarmSound.play(); // Play the alarm sound
+        }
+    }, 1000); // Update every second (1000ms)
+}
+
+// Add an event listener to start the timer when the page loads
+document.addEventListener('DOMContentLoaded', function() {
+    startCountdown(); // Automatically start the countdown
+});
