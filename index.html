@@ -4,7 +4,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Draw, Ug, Rhyme, Mime!</title>
-
+  <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+#            background-image: url('doodle-background.png');
+            background-image: url('tile-3.png');
+            background-repeat: repeat;
+            background-size: auto;
+            background-color: white;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.5s ease; /* Smooth background color changes */
+        }
+        .word-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .word-list li {
+            font-size: 1.5em;
+            margin: 10px 0;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+        .word-container {
+            background-color: rgba(255, 255, 255, 0.95); /* White background with 80% opacity */
+            border-radius: 10px; /* Rounded corners for a softer look */
+            padding: 20px; /* Space inside the box */
+            width: 80%; /* Adjust the width of the box */
+            max-width: 600px; /* Prevent the box from becoming too wide */
+            margin: 20px auto; /* Center the box with top margin */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Add a shadow for better visibility */
+            text-align: center; /* Center-align the text */
+        }
+        .word-container ul {
+            list-style-type: none; /* No bullet points */
+            padding: 0;
+            margin: 0;
+        }
+        .word-container li {
+            font-size: 2.5em; /* Larger font size for words */
+            color: #333; /* Dark color for text */
+            margin: 10px 0; /* Space between words */
+        }
+        .timer-container {
+            text-align: center;
+            font-size: 2rem;
+            margin: 20px;
+            padding: 10px;
+            background: #f9f9f9;
+            border-radius: 10px;
+            border: 2px solid #ccc;
+            width: 100px;
+            margin: 0 auto;
+        }
+        
+        #timer {
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
 </head>
 <body>
     <div class="instructions-container">
