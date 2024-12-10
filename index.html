@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Draw, Ug, Rhyme, Mime!</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="instructions-container">
+        <h1>Instructions</h1>
+        <p>
+            Choose <strong>4 words</strong> from the 8 given, then get your partner to guess those four words by doing one of the following:
+        </p>
+        <ul>
+            <li>
+                <strong>DRAW one word!</strong> Quickly quickly now, but no writing letters!
+            </li>
+            <li>
+                <strong>UG one word!</strong> You are a caveman, so speak like one! You only know one-syllable words and you can't use <strong>THE</strong>, <strong>AND</strong>, or any numbers!
+            </li>
+            <li>
+                <strong>RHYME one word!</strong> Can you create three clues with three answers that rhyme? One of those answers must be your word:
+                <blockquote>
+                    Where I put rubbish, where baked beans live, when we score more goals...
+                    <br>
+                    <span style="font-size: 1em;"><strong>BIN</strong>,</span>
+                    <span style="font-size: 1.5em;"><strong>TIN</strong>,</span>
+                    <span style="font-size: 2em;"><strong>WIN</strong>!!!</span>
+                </blockquote>
+            </li>
+            <li>
+                <strong>MIME one word!</strong> Can you play charades? You have to mime the final word!
+            </li>
+        </ul>
+        <p>
+            You have <strong>90 seconds</strong>, so chop chop! You get <strong>2 points per word</strong> you guess and <strong>2 bonus points</strong> if you get all four! But, if you can't get any, the other team can get a bonus point if they can answer!
+        </p>
+        <h2>Why don't you play!</h2>
+    </div>
+    <div class="game-container">
+        <button id="generateWords" onclick="showRandomWords()">Generate Words</button>
+        <div class="word-container">
+            <ul id="wordList"></ul>
+        </div>
+        <div class="timer-container">
+            <p>Time Remaining: <span id="timer">90</span> seconds</p>
+        </div>
+    </div>
+    <audio id="alarm-sound" src="alarm.mp3"></audio>
+</body>
+</html>
