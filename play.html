@@ -68,25 +68,19 @@
             color: #333;
         }
     </style>
-    <script src="script.js" defer></script>
 </head>
 <body>
-
     <div class="word-container">
         <h1>Draw, Ug, Rhyme, Mime!</h1>
     </div>
-    <div class="game-container">
-        <button id="startGame" onclick="startGame()">GO!</button>
-        <div class="word-container" style="display: none;">
+    <div class="timer-container">
+            <div id="timer">20</div> <!-- Timer display -->
+            <audio id="alarm-sound" src="alarm.mp3"></audio> <!-- Add an alarm sound -->
+     </div>
+     <div class="word-container">
             <ul id="wordList"></ul>
-        </div>
-        <div class="timer-container" style="display: none;">
-            <p>Time Remaining: <span id="timer">90</span> seconds</p>
-        </div>
-    </div>
-    <audio id="alarm-sound" src="alarm.mp3"></audio>
-    
-    <button onclick="showRandomWords()">Generate Words</button>
-
+     </div>
+     <button onclick="showRandomWords()">Generate Words</button>
+     <script src="script.js"></script>
 </body>
 </html>
