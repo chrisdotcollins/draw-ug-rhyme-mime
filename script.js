@@ -38,7 +38,7 @@ function startCountdown() {
         }
 
         if (timeRemaining === 3) {
-            playAlarmSound(); // Play the alarm sound with 3 seconds left
+            alarmSound.play(); // Play the alarm sound with 3 seconds left
         }
         
         // Check if the timer has reached zero
