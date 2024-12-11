@@ -37,10 +37,14 @@ function startCountdown() {
             flashTimerContainer();
         }
 
+        if (timeRemaining === 3) {
+            playAlarmSound(); // Play the alarm sound with 3 seconds left
+        }
+        
         // Check if the timer has reached zero
         if (timeRemaining <= 0) {
             clearInterval(timerInterval); // Stop the timer
-            alarmSound.play(); // Play the alarm sound
+        //    alarmSound.play(); // Play the alarm sound
         }
     }, 1000); // Update every second (1000ms)
 
