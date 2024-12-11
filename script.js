@@ -7,11 +7,6 @@ window.addEventListener('click', () => {
 
 // Function to start the game
 function startGame() {
-    if (!hasInteracted) {
-        console.warn('User interaction required for audio playback.');
-        return;
-    }
-
     // Show the word container and timer
     document.querySelector('.word-container').style.display = 'block';
     document.querySelector('.timer-container').style.display = 'block';
@@ -79,3 +74,13 @@ function playAlarmSound() {
         alarmSound.play().catch((error) => console.error('Audio playback failed:', error));
     }
 }
+
+// Ensure initial user interaction requirement is clear
+window.addEventListener('DOMContentLoaded', () => {
+    const startButton = document.getElementById('startGame');
+    startButton.addEventListener('click', () => {
+        if (!hasInteracted) {
+            alert('Please interact with the page to enable audio playback.');
+        }
+    });
+});
